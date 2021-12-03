@@ -12,13 +12,14 @@ import Layout from "./componets/Layout/Layout";
 import ShoeMoreInfo from "./componets/ShoeMoreInfo/ShoeMoreInfo";
 import Login from "./componets/Login/Login";
 import Register from "./componets/Register/Register";
+import Favorites from "./componets/Favorites/Favorites";
 
 function App() {
     const [shoes, setShoes] = useState([]);
     useEffect(() => {
-
+        console.log(JSON.parse(localStorage.getItem('favorites')));
         axios('https://v1-sneakers.p.rapidapi.com/v1/sneakers', {
-            params: {limit: '50'}, headers: {
+            params: {limit: '100'}, headers: {
                 'x-rapidapi-host': 'v1-sneakers.p.rapidapi.com',
                 'x-rapidapi-key': 'ffd3b9a628msh08dbad225f58e26p132143jsn3c0454617813'
             }
@@ -59,6 +60,7 @@ function App() {
                     <Route path='men' element={<Men shoes={shoes} setShoes={setShoes}/>}/>
                     <Route path='women' element={<Women shoes={shoes} setShoes={setShoes}/>}/>
                     <Route path='child' element={<Child shoes={shoes} setShoes={setShoes}/>}/>
+                    <Route path='favorite' element={<Favorites shoes={shoes} setShoes={setShoes}/>}/>
                     <Route path='cart' element={<Cart/>}/>
                     <Route path='*' element={<NotFound/>}/>
                 </Route>

@@ -9,10 +9,18 @@ import {Link} from 'react-router-dom'
 import ChangeSize from "../ChangeSize/ChangeSize";
 import BuyButton from "../BuyButton/BuyButton";
 import Full from "../Hearts/Hearts";
+import Pagination from "./Pagination";
 
-const Card = ({shoes, setShoes}) => {
+const Card = ({shoes, setShoes,shoesForCard}) => {
     const [search, setSearch] = useState('');
     const {addFavorite} = useContext(CustomContext);
+    const [countCard] = useState(9);
+    const [pageNumber, setPageNumber] = useState(1);
+
+    const lastIdxCard = countCard  * pageNumber;
+    const firstIdx = lastIdxCard - countCard;
+    const showPage = shoesForCard.slice(firstIdx, lastIdxCard);
+
 
     const favoriteHandler = (id) => {
         setShoes(shoes.map((item, idx) => {
@@ -33,8 +41,6 @@ const Card = ({shoes, setShoes}) => {
             return item.favorite
         }))
     };
-
-
     return (
         <section className='home'>
             <div className="container">
@@ -57,7 +63,7 @@ const Card = ({shoes, setShoes}) => {
                     : ''}
 
                 <div className="row">
-                    {shoes.filter((item) => {
+                    {showPage.filter((item) => {
                         return item.title.toUpperCase().includes(search.toUpperCase())
                     }).map((item) => {
                         return (
@@ -85,6 +91,7 @@ const Card = ({shoes, setShoes}) => {
                         )
                     })}
                 </div>
+                <Pagination pageNumber={pageNumber} setPageNumber={setPageNumber} shoesForCard={shoesForCard} countCard={countCard}/>
             </div>
         </section>
     );

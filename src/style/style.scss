@@ -247,3 +247,32 @@ select {
     }
   }
 }
+
+.paginations{
+  display:flex;
+  justify-content: center;
+  column-gap : 10px;
+}
+
+.pagination__item{
+  color:black;
+  border: 1px solid black;
+  padding: 10px!important;
+  cursor: pointer;
+
+  &:hover{
+    background-color: slateblue!important;
+    color: white;
+  }
+  &.active{
+    background-color: slateblue!important;
+    color: white;
+  }
+  &_arrow{
+    border: none;
+    &:hover{
+      color: slateblue!important;
+      background-color: transparent!important;
+    }
+  }
+}

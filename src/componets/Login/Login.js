@@ -7,7 +7,7 @@ import {addUsers} from "../../globalFunc/addUsers";
 
 const Login = ({shoes,setShoes}) => {
     const navigate = useNavigate();
-    const {addUser} = useContext(CustomContext);
+    const {addUser, user} = useContext(CustomContext);
 
     const handleLogin = (email, password) => {
         const auth = getAuth();
@@ -22,7 +22,7 @@ const Login = ({shoes,setShoes}) => {
 
     useEffect(()=>{
         if (localStorage.getItem('email') !== null){
-            addUser({
+        addUser({
                 email: 'asasd@asdasd',
                 token: localStorage.getItem('token'),
                 id: localStorage.getItem('id'),
@@ -30,8 +30,8 @@ const Login = ({shoes,setShoes}) => {
                 cart: JSON.parse(localStorage.getItem('cart')),
                 favorites: JSON.parse(localStorage.getItem('favorites')),
             });
-            setShoes(shoes);
-            navigate('/')
+          setShoes(shoes);
+          navigate('/')
 
         }
 

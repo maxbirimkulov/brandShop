@@ -3,7 +3,7 @@ import Card from "../Card/Card";
 
 const Child = ({shoes, setShoes})=> {
     return (
-            <Card setShoes={setShoes}  shoes={shoes.filter((item)=> item.gender === 'child' || item.gender === 'toddler')}/>
+            <Card setShoes={setShoes}  shoes={shoes} shoesForCard={shoes.filter((item)=> item.gender === 'child' || item.gender === 'toddler')}/>
     );
 };
 

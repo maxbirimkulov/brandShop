@@ -24,7 +24,6 @@ const Form = ({ handleClick, title, action, variant, link,path}) => {
                 <Facebook navigate={navigate}/>
                 <GitHub navigate={navigate}/>
             </ul>
-            <Link to='/women'>women</Link>
             <button className='btn' onClick={()=> handleClick(email, pass)}>{action}</button>
         </div>
     );
