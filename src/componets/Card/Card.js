@@ -67,7 +67,7 @@ const Card = ({shoes, setShoes,shoesForCard}) => {
                         return item.title.toUpperCase().includes(search.toUpperCase())
                     }).map((item) => {
                         return (
-                            <div className="col s12 m4" key={item.id}>
+                            <div className="col s12 m6 l4" key={item.id}>
                                 <div className="card">
                                     <div className="card-image">
                                         <img className='home__card-image'
@@ -80,7 +80,7 @@ const Card = ({shoes, setShoes,shoesForCard}) => {
                                         <ChangeSize item={item} shoes={shoes} setShoes={setShoes}/>
                                     </div>
                                     <div className="card-action">
-                                        <Link to={`/shoes/${item.title.split(' ').join('-')}`}>Learn more</Link>
+                                        <Link to={`/shoes/${item.id}`}>Learn more</Link>
                                         <BuyButton item={item} shoes={shoes} count={1}/>
                                     </div>
                                     <div className='card-like' onClick={() => favoriteHandler(item.id)}>

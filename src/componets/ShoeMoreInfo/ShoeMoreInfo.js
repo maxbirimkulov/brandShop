@@ -17,7 +17,7 @@ const ShoeMoreInfo = ({shoes, setShoes}) => {
                 </>
                 : ''}
             {shoes.filter((item)=>{
-                return item.title === params.title.split('-').join(' ')
+                return item.id === params.id
             }).map((item)=>{
                 return (
                     <div key={item.id}>

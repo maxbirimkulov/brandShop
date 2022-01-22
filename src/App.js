@@ -7,7 +7,7 @@ import axios from "axios";
 import Men from "./componets/Men/Men";
 import Women from "./componets/Women/Women";
 import Child from "./componets/Child/Child";
-import './style/style.scss'
+import './style/style.css'
 import Layout from "./componets/Layout/Layout";
 import ShoeMoreInfo from "./componets/ShoeMoreInfo/ShoeMoreInfo";
 import Login from "./componets/Login/Login";
@@ -56,7 +56,7 @@ function App() {
                 <Route path='/register' element={<Register/>}/>
                 <Route path='/' element={<Layout/>}>
                     <Route path='' element={<Home shoes={shoes} setShoes={setShoes} />}/>
-                    <Route path='shoes/:title' element={<ShoeMoreInfo shoes={shoes} setShoes={setShoes}/>}/>
+                    <Route path='shoes/:id' element={<ShoeMoreInfo shoes={shoes} setShoes={setShoes}/>}/>
                     <Route path='men' element={<Men shoes={shoes} setShoes={setShoes}/>}/>
                     <Route path='women' element={<Women shoes={shoes} setShoes={setShoes}/>}/>
                     <Route path='child' element={<Child shoes={shoes} setShoes={setShoes}/>}/>

@@ -1,15 +1,19 @@
-import React,{useContext} from 'react';
+import React,{useContext, useState} from 'react';
 import {Link , NavLink} from "react-router-dom";
 import {CustomContext} from "../../Context";
 
 const Header = () => {
     const {count, removeUser} = useContext(CustomContext);
+    const [burger,setBurger] = useState(false)
     return (
         <header>
             <nav>
                 <div className="nav-wrapper">
-                    <Link to="/" className="brand-logo">Brand Shop</Link>
-                    <ul id="nav-mobile" className="right hide-on-med-and-down">
+
+                        <Link className='logo' to="/" >Brand Shop</Link>
+
+
+                    <ul id="nav-mobile" className={`header-list right ${burger ? 'active' : ''}`}>
                         <li className='header__link'><NavLink  to="/men">Men</NavLink></li>
                         <li className='header__link'><NavLink  to="/women">Women</NavLink></li>
                         <li className='header__link'><NavLink  to="/child">Child</NavLink></li>
@@ -27,6 +31,11 @@ const Header = () => {
                             } }>Log out</Link>
                         </li>
                     </ul>
+
+                    <div className={`burger ${burger ? 'active' : ''}`} onClick={() => setBurger(!burger) }>
+                        <span className="burger__line"></span>
+                    </div>
+
                 </div>
             </nav>
         </header>
